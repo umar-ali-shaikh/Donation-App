@@ -1,0 +1,76 @@
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        margin-top: -50px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 32px;
+    }
+
+    .contact-hero h1 {
+        font-size: 36px;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+    .community-section {
+        padding: 40px 24px;
+    }
+
+    .my-stories-cta {
+        padding: 80px 20px;
+    }
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+
+    .my-stories-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .comment-box {
+        flex-direction: column;
+    }
+
+    .comment-btn {
+        align-self: flex-end;
+    }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+    .highlight-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .highlight-card img {
+        margin: auto;
+    }
+}
