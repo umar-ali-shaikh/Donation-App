@@ -19,16 +19,16 @@ function Footer() {
                 {/* Links */}
                 <div className="footer-links">
                     <h4>Explore</h4>
-                    <a href="#">Home</a>
-                    <a href="#">Stories</a>
-                    <a href="#">Donate</a>
-                    <a href="#">About Us</a>
+                    <a href="/home">Home</a>
+                    <a href="/stories">Stories</a>
+                    <a href="/donation">Donate</a>
+                    <a href="/about">About Us</a>
                 </div>
 
                 {/* Support */}
                 <div className="footer-links">
                     <h4>Support</h4>
-                    <a href="#">Contact</a>
+                    <a href="/contact">Contact</a>
                     <a href="#">FAQs</a>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms & Conditions</a>
@@ -38,10 +38,34 @@ function Footer() {
                 <div className="footer-social">
                     <h4>Connect With Us</h4>
                     <div className="social-icons">
-                        <a href="#">📸</a>
-                        <a href="#">🐦</a>
-                        <a href="#">✖️</a>
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
+                            <i className="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <i className="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Twitter"
+                        >
+                            <i className="fa-brands fa-x-twitter"></i>
+                        </a>
                     </div>
+
                 </div>
 
             </div>

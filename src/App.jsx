@@ -27,57 +27,63 @@ function App() {
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
-        {/* ✅ Login / Signup Page */}
+
         <Route
           path="/login"
           element={
             isLoggedIn ? (
-              <Navigate to="/home" />
+              <Navigate to="/home" replace />
             ) : (
               <Loginsign setIsLoggedIn={setIsLoggedIn} />
             )
           }
         />
 
-        {/* ✅ Protected Routes */}
         <Route
           path="/home"
-          element={isLoggedIn ? <Home /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Home /> : <Navigate to="/login" replace />}
         />
 
         <Route
           path="/profile"
-          element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Profile /> : <Navigate to="/login" replace />}
         />
 
         <Route
           path="/about"
-          element={isLoggedIn ? <About /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <About /> : <Navigate to="/login" replace />}
         />
 
         <Route
           path="/stories"
-          element={isLoggedIn ? <Stories /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Stories /> : <Navigate to="/login" replace />}
         />
+
         <Route
           path="/userstories"
-          element={isLoggedIn ? <UserStories /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <UserStories /> : <Navigate to="/login" replace />}
         />
 
         <Route
           path="/donation"
-          element={isLoggedIn ? <Donate /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Donate /> : <Navigate to="/login" replace />}
         />
+
         <Route
           path="/contact"
-          element={isLoggedIn ? <Contact /> : <Navigate to="/login" />}
+          element={isLoggedIn ? <Contact /> : <Navigate to="/login" replace />}
         />
 
+        {/* SAFE fallback */}
+        <Route
+          path="*"
+          element={
+            isLoggedIn ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />
+          }
+        />
 
-
-        {/* ✅ Default redirect */}
-        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
+
 
       <Footer />
     </BrowserRouter>

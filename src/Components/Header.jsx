@@ -26,10 +26,10 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
 
     const logout = () => {
         localStorage.removeItem("login");
-        localStorage.removeItem("profileImage");
         setIsLoggedIn(false);
-        navigate("/login");
+        navigate("/login", { replace: true });
     };
+
 
     return (
         <header className="app-header">
