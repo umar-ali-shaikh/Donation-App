@@ -29,6 +29,8 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
         setIsLoggedIn(false);
         navigate("/login", { replace: true });
     };
+    const [menuOpen, setMenuOpen] = useState(false);
+
 
 
     return (
@@ -41,14 +43,23 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
                     <span className="brand">Humans of Kindness</span>
                 </div>
 
+
+                <div
+                    className={`header-manu-icon ${menuOpen ? "active" : ""}`}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    <i className="fa-solid fa-bars"></i>
+                </div>
+
                 {/* Navigation */}
-                <nav className="header-nav">
-                    <a href="/home">Home</a>
-                    <a href="/about">About Us</a>
-                    <a href="/Stories">Stories</a>
-                    <a href="/donation">Donate</a>
-                    <a href="/contact">Contact Us</a>
+                <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
+                    <a href="/home" onClick={() => setMenuOpen(false)}>Home</a>
+                    <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+                    <a href="/stories" onClick={() => setMenuOpen(false)}>Stories</a>
+                    <a href="/donation" onClick={() => setMenuOpen(false)}>Donate</a>
+                    <a href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
                 </nav>
+
 
                 {/* Actions */}
                 <div className="header-actions">

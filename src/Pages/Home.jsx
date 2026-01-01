@@ -1,5 +1,7 @@
 
 import { useState } from 'react'
+
+import '../styleres.css';
 import '../style.css'
 
 

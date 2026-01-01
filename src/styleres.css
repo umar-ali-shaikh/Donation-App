@@ -65,9 +65,84 @@
 /* ---------- Responsive ---------- */
 
 @media (max-width: 768px) {
-    .highlight-card {
-        grid-template-columns: 1fr;
+    section h2:first-child {
         text-align: center;
+    }
+
+    .header-manu-icon {
+        display: flex !important;
+        margin-left: auto;
+        font-size: 24px;
+    }
+
+    .header-nav {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        z-index: -1;
+        position: absolute;
+        flex-direction: column;
+        width: 90%;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: rgba(245, 236, 220, 0.9);
+        transform: translateY(-10px);
+        padding: 20px;
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+
+    .header-nav.active {
+        max-height: 400px;
+        /* enough for menu items */
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 999;
+    }
+
+    .footer-brand p {
+        margin: auto;
+    }
+
+    section {
+        padding-inline: 20px !important;
+    }
+
+    .header-nav a {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 10px;
+    }
+
+    .header-nav a::after {
+        bottom: -2px;
+    }
+
+    .highlight-card {
+        display: flex !important;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-story {
+        margin-inline: 20px;
+    }
+
+    .about-impact {
+        flex-wrap: wrap;
+    }
+
+    .team-grid .team-card {
+        width: 40%;
+    }
+
+    .donation-container {
+        display: flex;
+        flex-direction: column-reverse;
     }
 
     .highlight-card img {
