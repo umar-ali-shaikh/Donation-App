@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../style.css";
+import Contactimage1 from "../assets/Contact-us-image1.webp"
 
 function Donate() {
     const [amount, setAmount] = useState(500);
@@ -69,7 +70,7 @@ function Donate() {
                 {/* Illustration */}
                 <div className="donation-illustration card">
                     <img
-                        src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png"
+                        src={Contactimage1}
                         alt="Donation"
                     />
                 </div>

@@ -1,33 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
 
+/* Components */
 import Loginsign from "./Components/LoginSignup";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import Profile from "./Components/UserProfile"
-import UserStories from "./Components/User-Stories"
+import Profile from "./Components/UserProfile";
+import UserStories from "./Components/User-Stories";
 
+/* Pages */
 import Home from "./Pages/Home";
 import About from "./Pages/About-us";
 import Stories from "./Pages/Stories";
 import Donate from "./Pages/donation";
 import Contact from "./Pages/contact";
 
+/* UI Effects */
+import IntroMouseHover from "./Components/Appintro";
+import AppLoader from "./Components/AppLoader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("login") === "true"
   );
 
+  const [loading, setLoading] = useState(true);
+
+  /* Loader timing */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <BrowserRouter>
-      {/* ✅ Header gets auth state */}
+      {/* 🌍 Global Loader */}
+      {loading && <AppLoader />}
+
+      {/* 🖱️ Custom Cursor (Desktop only recommended) */}
+      <IntroMouseHover />
+
+      {/* 🔝 Header */}
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
-
         <Route
           path="/login"
           element={
@@ -74,17 +95,20 @@ function App() {
           element={isLoggedIn ? <Contact /> : <Navigate to="/login" replace />}
         />
 
-        {/* SAFE fallback */}
+        {/* 🛟 Safe fallback */}
         <Route
           path="*"
           element={
-            isLoggedIn ? <Navigate to="/home" replace /> : <Navigate to="/login" replace />
+            isLoggedIn ? (
+              <Navigate to="/home" replace />
+            ) : (
+              <Navigate to="/login" replace />
+            )
           }
         />
-
       </Routes>
 
-
+      {/* 🔻 Footer */}
       <Footer />
     </BrowserRouter>
   );

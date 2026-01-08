@@ -37,30 +37,6 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
         <header className="app-header">
             <div className="container header-inner">
 
-                {/* Logo */}
-                <div className="header-logo">
-                    <span className="heart">❤️</span>
-                    <span className="brand">Humans of Kindness</span>
-                </div>
-
-
-                <div
-                    className={`header-manu-icon ${menuOpen ? "active" : ""}`}
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    <i className="fa-solid fa-bars"></i>
-                </div>
-
-                {/* Navigation */}
-                <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
-                    <a href="/home" onClick={() => setMenuOpen(false)}>Home</a>
-                    <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
-                    <a href="/stories" onClick={() => setMenuOpen(false)}>Stories</a>
-                    <a href="/donation" onClick={() => setMenuOpen(false)}>Donate</a>
-                    <a href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
-                </nav>
-
-
                 {/* Actions */}
                 <div className="header-actions">
 
@@ -101,6 +77,32 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
                     )}
 
                 </div>
+
+
+                {/* Logo */}
+                <div className="header-logo">
+                    <span className="heart">❤️</span>
+                    <span className="brand">Humans of Kindness</span>
+                </div>
+
+
+                <div
+                    className={`header-manu-icon ${menuOpen ? "active" : ""}`}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    <i className="fa-solid fa-bars"></i>
+                </div>
+
+                {/* Navigation */}
+                <nav className={`header-nav ${menuOpen ? "active" : ""}`}>
+                    <a href="/home" onClick={() => setMenuOpen(false)}>Home</a>
+                    <a href="/about" onClick={() => setMenuOpen(false)}>About Us</a>
+                    <a href="/stories" onClick={() => setMenuOpen(false)}>Stories</a>
+                    <a href="/donation" onClick={() => setMenuOpen(false)}>Donate</a>
+                    <a href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
+                </nav>
+
+
             </div>
         </header>
     );

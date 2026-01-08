@@ -1,3 +1,35 @@
+:root {
+    /* Brand Colors */
+    --primary: #9b6bff;
+    --primary-dark: #7a4de8;
+    --secondary: #f7c6a3;
+    --accent: #c6e6e8;
+
+    /* Neutral */
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --gray-100: #f7f7f7;
+    --gray-200: #e5e5e5;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+
+    /* Text */
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+
+    /* Shadow */
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+    /* Animation */
+    --transition: all 0.3s ease;
+}
+
 /* Header */
 
 .app-header {
@@ -26,6 +58,7 @@
     gap: 8px;
     font-weight: 600;
     font-size: 16px;
+    margin-right: auto;
 }
 
 .header-logo .heart {
@@ -65,6 +98,7 @@
 .header-actions {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .btn-outline {
@@ -99,10 +133,10 @@
 /* Dropdown */
 .profile-dropdown {
     position: absolute;
-    right: 0;
-    top: 50px;
+    left: 0;
+    top: 58px;
     background: var(--white);
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
     box-shadow: var(--shadow-md);
     padding: 10px;
     width: 160px;
@@ -432,7 +466,6 @@
 
 .my-stories-page {
     background: var(--gray-100);
-    /* padding-bottom: 80px; */
     font-family: 'Inter', sans-serif;
 }
 
@@ -861,10 +894,12 @@
 /* Hero */
 .hero {
     height: 90vh;
-    background: url("/hero section page.jpeg") center/cover no-repeat;
+    max-height: 650px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .hero-overlay {
@@ -872,6 +907,78 @@
     background: rgba(255, 255, 255, 0.85);
     padding: 40px;
     border-radius: 20px;
+    opacity: 0;
+    position: absolute;
+}
+
+.hero-overlay-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    left: 0;
+}
+
+.hero-overlay-image img.active {
+    z-index: 2;
+}
+
+.hero-overlay-image img {
+    position: absolute;
+    z-index: 1;
+}
+
+.hero-overlay.active {
+    opacity: 1;
+    position: relative;
+}
+
+.hero-overlay-hlp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+}
+
+.hero-overlay-icon {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    z-index: 3;
+    mix-blend-mode: multiply;
+    width: 400px;
+    height: auto;
+
+    animation: hero-icon 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes hero-icon {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(40px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #0e2c27;
+    opacity: 0.8;
+    z-index: 2;
 }
 
 .hero-overlay h1 {
@@ -889,6 +996,10 @@
 /* Stories */
 .stories {
     padding: 80px 0;
+}
+
+.stories h2 {
+    text-align: center;
 }
 
 /* Buttons */
@@ -972,6 +1083,205 @@
 .how-card span {
     font-size: 36px;
 }
+
+
+
+
+/* ==============================
+   ABOUT SECTION SPECIFIC STYLES
+================================ */
+
+.about-section {
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    /* Optional: makes it fill screen */
+}
+
+/* Match Image 2's clean white card look */
+.about-card {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* --- Left Side: Image --- */
+.about-image-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+.main-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    z-index: 2;
+    object-fit: cover;
+}
+
+/* Decorative Elements (Sun & Dots) styled with your theme */
+.decor-sun {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 25%;
+    color: var(--text-main);
+    z-index: 1;
+    animation: spin 20s linear infinite;
+    will-change: transform;
+    transform-origin: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.decor-sun img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.decor-dots {
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    width: 100px;
+    height: 150px;
+    background-image: radial-gradient(var(--secondary) 2px, transparent 2px);
+    background-size: 10px 10px;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* --- Right Side: Content --- */
+.section-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    /* Using your primary purple */
+    font-weight: 600;
+    font-family: 'Dancing Script', cursive;
+    /* Matches your h3 font style */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.about-content h2 {
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 30px;
+}
+
+/* The Grid for Checkmarks */
+.charity-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 10px;
+    margin-bottom: 40px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+/* Custom Checkbox styled like your theme */
+.check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--secondary);
+    /* Peach background */
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+/* --- Action Row --- */
+.action-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Hotline Styling */
+.hotline-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.phone-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotline-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.hotline-info span {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.hotline-info strong {
+    font-size: 16px;
+    color: var(--text-main);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .charity-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
 
 /* ---------- Highlight Story ---------- */
 
@@ -1180,10 +1490,16 @@
 /* ---------- Hero ---------- */
 
 .donation-hero {
-    height: 60vh;
-    background: linear-gradient(135deg,
-            var(--secondary),
-            var(--accent));
+    height: 70vh;
+    background:
+        linear-gradient(135deg,
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.2)),
+        url("./assets/Contact-us-image3.webp");
+
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1191,9 +1507,14 @@
     padding-left: 80px;
 }
 
+.donation-hero p {
+    color: var(--white);
+    opacity: 0.9;
+}
+
 .donation-hero h1 {
-    color: var(--text-main);
     font-weight: 700;
+    color: var(--white);
 }
 
 /* ---------- Layout ---------- */
@@ -1385,7 +1706,6 @@
 
 .donation-illustration img {
     width: 100%;
-    max-width: 360px;
 }
 
 
