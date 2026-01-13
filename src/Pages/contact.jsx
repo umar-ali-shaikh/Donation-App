@@ -18,7 +18,7 @@ function Contact() {
             {/* MAIN CONTENT */}
             <section className="contact-container container">
 
-                
+
                 {/* CONTACT INFO */}
                 <div className="contact-info card">
                     <h2>Get in Touch</h2>

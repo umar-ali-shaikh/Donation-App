@@ -75,6 +75,30 @@ export default function Home() {
                         <img src={herosectionicon} alt="" />
                     </div>
                 </section>
+
+
+                {/* Donation Done */}
+                <section className="stories container">
+                    <h2>Recent Donation</h2>
+
+                    <div className="story-grid">
+                        {[1, 2, 3, 4].map((item) => (
+                            <div className="story-card" key={item}>
+                                <img
+                                    src={`https://i.pravatar.cc/150?img=${item}`}
+                                    alt="User"
+                                />
+                                <h4>Amelia S.</h4>
+                                <p>A meal turned into a lifelong mentorship.</p>
+                                <span className="link-btn">
+                                    amt
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+
                 {/* About US */}
                 <section className="about-section slide-up">
                     <div className="container">
@@ -160,24 +184,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {/* Featured Stories */}
-                <section className="stories container">
-                    <h2>Featured Stories</h2>
-
-                    <div className="story-grid">
-                        {[1, 2, 3, 4].map((item) => (
-                            <div className="story-card" key={item}>
-                                <img
-                                    src={`https://i.pravatar.cc/150?img=${item}`}
-                                    alt="User"
-                                />
-                                <h4>Amelia S.</h4>
-                                <p>A meal turned into a lifelong mentorship.</p>
-                                <button className="link-btn">Read More</button>
-                            </div>
-                        ))}
-                    </div>
-                </section>
 
                 {/* How It Works */}
                 <section className="how-it-works">
