@@ -1,79 +1,92 @@
-import { useState } from 'react'
-import '../style.css'
+import { useState } from 'react';
+import '../Css/Component.css';
 
 
 function Footer() {
     return (
         <footer className="footer">
-            <div className="footer-container">
+            <div className="container">
+                <div className="row">
 
-                {/* Brand */}
-                <div className="footer-brand">
-                    <h3>❤️ Humans of Kindness</h3>
-                    <p>
-                        Spreading kindness through real stories and meaningful
-                        donations. Every contribution creates hope.
-                    </p>
-                </div>
-
-                {/* Links */}
-                <div className="footer-links">
-                    <h4>Explore</h4>
-                    <a href="/home">Home</a>
-                    <a href="/stories">Stories</a>
-                    <a href="/donation">Donate</a>
-                    <a href="/about">About Us</a>
-                </div>
-
-                {/* Support */}
-                <div className="footer-links">
-                    <h4>Support</h4>
-                    <a href="/contact">Contact</a>
-                    <a href="#">FAQs</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
-                </div>
-
-                {/* Social */}
-                <div className="footer-social">
-                    <h4>Connect With Us</h4>
-                    <div className="social-icons">
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook"
-                        >
-                            <i className="fa-brands fa-facebook-f"></i>
+                    {/* Brand + About */}
+                    <div className="col-lg-4 col-md-6 mb-4">   
+                        {/* Brand */}
+                        <a className="navbar-brand text-white fw-bold fs-3 mb-3 d-block" href="#" onClick={(e) => { e.preventDefault(); navigate('/home'); }} style={{ color: 'var(--text-main)' }}>
+                            <span style={{ color: 'var(--primary)', marginRight: '5px' }}>
+                                <span className="heart me-1">❤️</span>
+                                Humans
+                            </span>
+                            of Kindness
                         </a>
 
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                        >
-                            <i className="fa-brands fa-instagram"></i>
-                        </a>
+                        <p>
+                            We are a non-profit organization dedicated to improving lives through
+                            direct action and community support.
+                        </p>
 
-                        <a
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Twitter"
-                        >
-                            <i className="fa-brands fa-x-twitter"></i>
-                        </a>
+                        <div className="social-icons mt-4">
+                            <a href="#" className="text-white me-3">
+                                <i className="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" className="text-white me-3">
+                                <i className="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" className="text-white me-3">
+                                <i className="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="col-lg-2 col-md-6 mb-4">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Causes</a></li>
+                            <li><a href="#">Volunteers</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Services */}
+                    <div className="col-lg-2 col-md-6 mb-4">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Water Supply</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">Medical Help</a></li>
+                            <li><a href="#">Food Aid</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Newsletter */}
+                    <div className="col-lg-4 col-md-6 mb-4">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to get the latest news and updates.</p>
+
+                        <form className="d-flex">
+                            <input
+                                type="email"
+                                className="form-control me-2"
+                                placeholder="Email..."
+                            />
+                            <button type="submit" className="btn btn-theme">
+                                <i className="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
                     </div>
 
                 </div>
-
             </div>
 
-            <div className="footer-bottom">
-                <p>© {new Date().getFullYear()} Humans of Kindness. All rights reserved.</p>
+            {/* Footer Bottom */}
+            <div className="footer-bottom text-center">
+                <p className="mb-0 text-white-50">
+                    © 2026 Human of Kindness. All Rights Reserved.
+                </p>
             </div>
         </footer>
+
     );
 }
 

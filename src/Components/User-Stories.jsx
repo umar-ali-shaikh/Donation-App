@@ -1,4 +1,5 @@
-import "../style.css";
+import { useState } from 'react';
+import "../Css/Component.css";
 
 const donationSummary = {
   totalAmount: 4500,

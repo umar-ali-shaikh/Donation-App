@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../style.css";
+import "../Css/Donation.css";
 import Contactimage1 from "../assets/Contact-us-image1.webp"
 
 function Donate() {

@@ -1,8 +1,7 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
+import '../Css/Home.css';
 
-import '../styleres.css';
-import '../style.css';
 import aboutusicon from '../assets/aboutus-section-icon.png'
 import herosectionicon from '../assets/Home-page-hero-section-icon1.png'
 import herosectionimage2 from '../assets/donation-home-herosection2.jpg'
@@ -10,179 +9,404 @@ import herosectionimage1 from '../assets/donation-home-herosection1.jpg'
 import herosectionimage3 from '../assets/donation-home-herosection3.jpg'
 
 export default function Home() {
+
+    useEffect(() => {
+        new window.Swiper(".donorSwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+            },
+            breakpoints: {
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+    }, []);
+
+
     return (
         <>
             <div className="home-page">
 
                 {/* Hero Section */}
-                <section className="hero">
-                    <div className="hero-overlay-image">
-                        <img className="active" src={herosectionimage1} alt="" />
-                        <img src={herosectionimage2} alt="" />
-                        <img src={herosectionimage3} alt="" />
-                    </div>
-                    <div className="hero-overlay-hlp">
-                        <div className="hero-overlay active">
-                            <h1>Every Donation Creates a Story</h1>
-                            <p>Read real stories from real humans who chose kindness.</p>
-                            <div className="hero-actions">
-                                <button className="btn-primary">
-                                    <a href="/donation">
-                                        Donate Now
-                                    </a>
-                                </button>
-                                <button className="btn-secondary">
-                                    <a href="/stories">
-                                        Read Stories
-                                    </a>
-                                </button>
-                            </div>
-                        </div>
-                        <div className="hero-overlay">
-                            <h1>Every Donation Creates a Story</h1>
-                            <p>Read real stories from real humans who chose kindness.</p>
-                            <div className="hero-actions">
-                                <button className="btn-primary">
-                                    <a href="/donation">
-                                        Donate Now
-                                    </a>
-                                </button>
-                                <button className="btn-secondary">
-                                    <a href="/stories">
-                                        Read Stories
-                                    </a>
-                                </button>
-                            </div>
-                        </div>
-                        <div className="hero-overlay">
-                            <h1>Every Donation Creates a Story</h1>
-                            <p>Read real stories from real humans who chose kindness.</p>
-                            <div className="hero-actions">
-                                <button className="btn-primary">
-                                    <a href="/donation">
-                                        Donate Now
-                                    </a>
-                                </button>
-                                <button className="btn-secondary">
-                                    <a href="/stories">
-                                        Read Stories
-                                    </a>
+                <section className="hero-section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-7">
+                                <div className="hero-subtitle">Give a helping hand</div>
+
+                                <h1 className="hero-title animate__animated animate__fadeInUp">
+                                    The Power of <br /> Charity &amp; Unity
+                                </h1>
+
+                                <p className="text-white fs-5 mb-4">
+                                    In a world often marked by division, charity bridges the gap.
+                                    Join us to uplift lives and foster hope.
+                                </p>
+
+                                <button
+                                    className="btn btn-primary btn-lg rounded-pill fw-bold"
+                                    style={{
+                                        backgroundColor: 'var(--primary-dark)',
+                                        borderColor: 'var(--primary)'
+                                    }}
+                                    onClick={() => navigate('/about')}
+                                >
+                                    Discover More
+                                    <span className="fas fa-arrow-right"></span>
+                                    <i></i>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className='hero-overlay-icon'>
-                        <img src={herosectionicon} alt="" />
+
+                    <div className="rating-badge animate__animated animate__fadeInRight">
+                        <div className="stars mb-2">
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                        </div>
+
+                        <p className="mb-0 fw-bold">4.9/5 Rating</p>
+                        <small className="text-muted">By 1.5M Donors</small>
                     </div>
                 </section>
 
 
                 {/* Donation Done */}
-                <section className="stories container">
-                    <h2>Recent Donation</h2>
-
-                    <div className="story-grid">
-                        {[1, 2, 3, 4].map((item) => (
-                            <div className="story-card" key={item}>
-                                <img
-                                    src={`https://i.pravatar.cc/150?img=${item}`}
-                                    alt="User"
-                                />
-                                <h4>Amelia S.</h4>
-                                <p>A meal turned into a lifelong mentorship.</p>
-                                <span className="link-btn">
-                                    amt
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-
-                {/* About US */}
-                <section className="about-section slide-up">
+                <section
+                    className="section-padding"
+                    style={{ backgroundColor: "var(--accent-color)" }}
+                >
                     <div className="container">
-                        <div className="card about-card">
-                            <div className="about-grid">
+                        <div className="text-center mb-5">
+                            <div
+                                className="section-tagline justify-content-center mb-2"
+                                style={{ color: "var(--primary-color)" }}
+                            >
+                                <i className="fas fa-users"></i> Our Heroes
+                            </div>
+                            <h2>Recent Donors</h2>
+                            <p className="text-muted">
+                                Thanks to these amazing people for their recent contributions.
+                            </p>
+                        </div>
 
-                                {/* Left Side: Image */}
-                                <div className="about-image-wrapper">
-                                    {/* Decorative Sun SVG */}
-                                    <div className="decor-sun">
-                                        <img src={aboutusicon} alt="About Us Icon" />
-                                    </div>
-
-                                    {/* Decorative Dots */}
-                                    <div className="decor-dots"></div>
-
-                                    {/* Main Image */}
-                                    <img
-                                        src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop"
-                                        alt="Happy Children"
-                                        className="main-img hover-scale"
-                                    />
-                                </div>
-
-                                {/* Right Side: Content */}
-                                <div className="about-content">
-                                    <div className="section-tag">
-                                        <svg
-                                            width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" strokeWidth="2"
-                                            strokeLinecap="round" strokeLinejoin="round"
-                                        >
-                                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                            <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                        <span>About Company</span>
-                                    </div>
-
-                                    <h2>Rise Your Hand to Help The Poor Children</h2>
-
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
-                                        ultrices gravida.
-                                    </p>
-
-                                    {/* Charity List */}
-                                    <div className="charity-list">
-                                        {['Charity For Foods', 'Charity For Water', 'Charity For Education', 'Charity For Medical'].map((item, index) => (
-                                            <div className="list-item" key={index}>
-                                                <span className="check-icon">✓</span>
-                                                <span>{item}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    {/* Action Buttons */}
-                                    <div className="action-wrapper">
-                                        <button className="btn btn-primary">
-                                            Donation <span style={{ marginLeft: '8px' }}>❤</span>
-                                        </button>
-
-                                        <div className="hotline-box">
-                                            <div className="phone-icon">
-                                                <svg
-                                                    width="20" height="20" viewBox="0 0 24 24"
-                                                    fill="none" stroke="currentColor" strokeWidth="2"
-                                                    strokeLinecap="round" strokeLinejoin="round"
-                                                >
-                                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                                </svg>
-                                            </div>
-                                            <div className="hotline-info">
-                                                <span>Hotline</span>
-                                                <strong>+012(345) 6789</strong>
+                        <div className="swiper donorSwiper">
+                            <div className="swiper-wrapper">
+                                {[
+                                    {
+                                        name: "Rahul Sharma",
+                                        amount: "$150.00",
+                                        time: "2 hours ago",
+                                        img: "https://randomuser.me/api/portraits/men/32.jpg",
+                                    },
+                                    {
+                                        name: "Priya Patel",
+                                        amount: "$500.00",
+                                        time: "5 hours ago",
+                                        img: "https://randomuser.me/api/portraits/women/44.jpg",
+                                    },
+                                    {
+                                        name: "Amit Verma",
+                                        amount: "$75.00",
+                                        time: "Just now",
+                                        img: "https://randomuser.me/api/portraits/men/85.jpg",
+                                    },
+                                    {
+                                        name: "Rahul Sharma",
+                                        amount: "$150.00",
+                                        time: "2 hours ago",
+                                        img: "https://randomuser.me/api/portraits/men/32.jpg",
+                                    },
+                                    {
+                                        name: "Priya Patel",
+                                        amount: "$500.00",
+                                        time: "5 hours ago",
+                                        img: "https://randomuser.me/api/portraits/women/44.jpg",
+                                    },
+                                    {
+                                        name: "Amit Verma",
+                                        amount: "$75.00",
+                                        time: "Just now",
+                                        img: "https://randomuser.me/api/portraits/men/85.jpg",
+                                    },
+                                ].map((donor, index) => (
+                                    <div className="swiper-slide" key={index}>
+                                        <div className="donor-card">
+                                            <img
+                                                src={donor.img}
+                                                alt={donor.name}
+                                                className="donor-img"
+                                            />
+                                            <div>
+                                                <h5 className="mb-1">{donor.name}</h5>
+                                                <div className="donation-amount">{donor.amount}</div>
+                                                <span className="donation-time">
+                                                    <i className="fas fa-clock"></i> {donor.time}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
+
+                <section className="section-padding ">
+                    <div className="container">
+                        <div className="row align-items-center">
+
+                            {/* Left Content */}
+                            <div className="col-lg-5 mb-4 mb-lg-0">
+                                <div
+                                    className="section-tagline mb-3"
+                                    style={{ color: "var(--primary-color)" }}
+                                >
+                                    <i className="fas fa-chart-pie"></i> Transparency
+                                </div>
+
+                                <h2 className="mb-4">Where Does Your Donation Go?</h2>
+
+                                <p className="text-muted mb-4">
+                                    We believe in complete transparency. Every penny you donate is used
+                                    efficiently to maximize impact. Here is the breakdown of how we
+                                    utilize our funds.
+                                </p>
+
+                                <div className="d-flex align-items-start mb-3">
+                                    <i
+                                        className="fas fa-check-circle mt-1 me-3"
+                                        style={{ color: "var(--primary-color)", fontSize: "20px" }}
+                                    ></i>
+                                    <div>
+                                        <h5>Direct Aid</h5>
+                                        <p className="text-muted small">
+                                            Food, water, and medicine distribution directly to victims.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="d-flex align-items-start">
+                                    <i
+                                        className="fas fa-check-circle mt-1 me-3"
+                                        style={{ color: "var(--primary-color)", fontSize: "20px" }}
+                                    ></i>
+                                    <div>
+                                        <h5>Future Development</h5>
+                                        <p className="text-muted small">
+                                            Building schools and wells for long-term solutions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Right Content */}
+                            <div className="col-lg-7">
+                                <div className="usage-box">
+
+                                    <div className="progress-label">
+                                        <span>
+                                            <i className="fas fa-utensils me-2"></i> Food &amp; Medical Aid
+                                        </span>
+                                        <span>45%</span>
+                                    </div>
+                                    <div className="progress custom-progress">
+                                        <div
+                                            className="progress-bar progress-bar-theme"
+                                            role="progressbar"
+                                            style={{ width: "45%" }}
+                                        ></div>
+                                    </div>
+
+                                    <div className="progress-label">
+                                        <span>
+                                            <i className="fas fa-child me-2"></i> Child Education
+                                        </span>
+                                        <span>30%</span>
+                                    </div>
+                                    <div className="progress custom-progress">
+                                        <div
+                                            className="progress-bar progress-bar-theme"
+                                            role="progressbar"
+                                            style={{ width: "30%" }}
+                                        ></div>
+                                    </div>
+
+                                    <div className="progress-label">
+                                        <span>
+                                            <i className="fas fa-truck me-2"></i> Logistics &amp; Operations
+                                        </span>
+                                        <span>15%</span>
+                                    </div>
+                                    <div className="progress custom-progress">
+                                        <div
+                                            className="progress-bar progress-bar-theme"
+                                            role="progressbar"
+                                            style={{ width: "15%" }}
+                                        ></div>
+                                    </div>
+
+                                    <div className="progress-label">
+                                        <span>
+                                            <i className="fas fa-piggy-bank me-2"></i> Fundraising &amp; Admin
+                                        </span>
+                                        <span>10%</span>
+                                    </div>
+                                    <div className="progress custom-progress">
+                                        <div
+                                            className="progress-bar progress-bar-theme"
+                                            role="progressbar"
+                                            style={{ width: "10%" }}
+                                        ></div>
+                                    </div>
+
+                                    <div className="alert alert-light border mt-4 mb-0 text-center text-muted small">
+                                        <i className="fas fa-info-circle me-1"></i>
+                                        Audited by independent financial agency in 2025.
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
+                <section className="features-section pt-0">
+                    <div className="container features-container">
+                        <div className="row g-4">
+
+                            <div className="col-md-4">
+                                <div className="feature-card text-center">
+                                    <i className="fas fa-tint feature-icon"></i>
+                                    <h4>Pure Water</h4>
+                                    <p className="text-muted">
+                                        Providing clean water access to remote villages and communities.
+                                    </p>
+                                    <a
+                                        href="#"
+                                        className="text-decoration-none fw-bold"
+                                        style={{ color: "var(--primary-color)" }}
+                                    >
+                                        Read More <i className="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="col-md-4">
+                                <div className="feature-card text-center">
+                                    <i className="fas fa-graduation-cap feature-icon"></i>
+                                    <h4>Education</h4>
+                                    <p className="text-muted">
+                                        Sponsoring school supplies and tuition for underprivileged children.
+                                    </p>
+                                    <a
+                                        href="#"
+                                        className="text-decoration-none fw-bold"
+                                        style={{ color: "var(--primary-color)" }}
+                                    >
+                                        Read More <i className="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="col-md-4">
+                                <div className="feature-card text-center">
+                                    <i className="fas fa-heartbeat feature-icon"></i>
+                                    <h4>Medical Care</h4>
+                                    <p className="text-muted">
+                                        Offering free medical camps and medicine to those in need.
+                                    </p>
+                                    <a
+                                        href="#"
+                                        className="text-decoration-none fw-bold"
+                                        style={{ color: "var(--primary-color)" }}
+                                    >
+                                        Read More <i className="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section className="section-padding">
+                    <div className="container">
+                        <div className="row align-items-center">
+
+                            {/* Image Side */}
+                            <div className="col-lg-6 mb-5 mb-lg-0">
+                                <div className="about-img-box">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                        alt="About"
+                                        className="main-img img-fluid"
+                                    />
+
+                                    <div className="exp-badge">
+                                        <h3>25+</h3>
+                                        <span>
+                                            Years of <br /> Experience
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Content Side */}
+                            <div className="col-lg-6 ps-lg-5">
+                                <div className="section-tagline mb-3">
+                                    <i className="fas fa-heart"></i> About Organization
+                                </div>
+
+                                <h2 className="display-6 mb-4">
+                                    We Believe That We Can Save More Lives With You
+                                </h2>
+
+                                <p className="text-muted mb-4">
+                                    Together, we can create a brighter future. Whether you choose to
+                                    volunteer, donate, or spread the word, your contribution matters.
+                                </p>
+
+                                <ul className="list-check mb-4">
+                                    <li>
+                                        <i className="fas fa-check-circle"></i> Transparent Fund Usage
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-check-circle"></i> Immediate Crisis Relief
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-check-circle"></i> Sustainable Development Plans
+                                    </li>
+                                </ul>
+
+                                <button
+                                    className="btn btn-primary btn-lg rounded-pill fw-bold"
+                                    style={{
+                                        backgroundColor: "var(--primary-dark)",
+                                        borderColor: "var(--primary)",
+                                    }}
+                                >
+                                    Learn More
+                                    <span className="fas fa-arrow-right ms-2"></span>
+                                    <i></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
 
 
                 {/* How It Works */}
@@ -208,19 +432,31 @@ export default function Home() {
                 </section>
 
                 {/* Highlight Story */}
-                <section className="highlight container">
-                    <div className="highlight-card">
-                        <img
-                            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
-                            alt="Story"
-                        />
-                        <div className="highlight-content">
-                            <h3>
-                                “The smallest act of generosity can be the loudest message of
-                                hope.”
-                            </h3>
-                            <p>— Sara Jenkins, San Francisco</p>
-                            <button className="btn-secondary">Read Full Story</button>
+                <section className="highlight">
+                    <div className="container">
+                        <div className="highlight-card">
+                            <img
+                                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
+                                alt="Story"
+                            />
+                            <div className="highlight-content">
+                                <h3>
+                                    “The smallest act of generosity can be the loudest message of
+                                    hope.”
+                                </h3>
+                                <p>— Sara Jenkins, San Francisco</p>
+                                <button
+                                    className="btn btn-primary btn-lg rounded-pill fw-bold"
+                                    style={{
+                                        backgroundColor: "var(--primary-dark)",
+                                        borderColor: "var(--primary)",
+                                    }}
+                                >
+                                    Read Full Story
+                                    <span className="fas fa-arrow-right ms-2"></span>
+                                    <i></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </section>

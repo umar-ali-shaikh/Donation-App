@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import '../style.css'
+import '../Css/Component.css';
 
 function Loginsign({ setIsLoggedIn }) {
     const [isLogin, setIsLogin] = useState(true)
